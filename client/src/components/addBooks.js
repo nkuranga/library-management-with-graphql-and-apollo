@@ -10,7 +10,19 @@ const AddBooks = () => {
   });
 
   //onChange Handle for inputs
-
+  //count and validate inputs
+const validateCharacters = (e) => {
+    const countInitial = 100;
+    //store value to states
+    setInputs({ ...inputs, description: e.target.value });
+    setCountCharacters(e.target.value.length);
+    if (countCharacters >= countInitial) {
+      return setErrMsg(true);
+    } else {
+      return setErrMsg(false);
+    }
+  };
+  useEffect(() => {}, [countCharacters, inputs.description, errMsg]);
   // const onChangeHandler = (e) => {
   //   setBook({ ...book, [e.target.name]: [e.target.value] });
   // };
